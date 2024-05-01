@@ -30,10 +30,9 @@ def draw_plot():
     intercept_2 = lin_regress_2.intercept
     slope_2 = lin_regress_2.slope
 
-    x_2 = x_1
-    y_2 = intercept_2 + slope_2 * x_2
+    y_2 = intercept_2 + slope_2 * x
 
-    plt.plot(x_2, y_2, 'r')
+    plt.plot(x, y_2, 'r')
 
     # Add labels and title
     plt.title('Rise in Sea Level')
