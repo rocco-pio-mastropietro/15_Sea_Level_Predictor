@@ -23,6 +23,7 @@ def draw_plot():
     plt.plot(x_1, y_1, 'y')
 
     # Create second line of best fit
+    
     x = df.loc[df['Year'] >= 2000, ['Year']].squeeze()
     y = df.loc[df['Year'] >= 2000, ['CSIRO Adjusted Sea Level']].squeeze()
     
@@ -30,9 +31,10 @@ def draw_plot():
     intercept_2 = lin_regress_2.intercept
     slope_2 = lin_regress_2.slope
 
-    y_2 = intercept_2 + slope_2 * x
+    x_1 = pd.concat([x, pd.Series([2050])], ignore_index=True)
+    y_2 = intercept_2 + slope_2 * x_1
 
-    plt.plot(x, y_2, 'r')
+    plt.plot(x_1, y_2, 'r')
 
     # Add labels and title
     plt.title('Rise in Sea Level')
